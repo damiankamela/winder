@@ -11,3 +11,5 @@ bin/console d:s:u --force
 
 echo "Cache clear"
 bin/console cache:clear
+
+echo "Application is up to date."
