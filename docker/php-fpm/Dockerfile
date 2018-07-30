@@ -21,6 +21,8 @@ RUN apt-get update \
 
 COPY docker/php-fpm/entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
+RUN touch /var/log/phpd.log
+RUN chmod 777 /var/log/phpd.log
 
 RUN useradd winder
 RUN usermod -s /bin/bash -u 1000 winder
