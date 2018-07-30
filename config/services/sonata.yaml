@@ -19,3 +19,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Stage }
         public: true
+
+    admin.component:
+        class: App\Admin\ComponentAdmin
+        arguments: [~, App\Entity\Component, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Component }
+        public: true
