@@ -12,3 +12,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Turbine }
         public: true
+
+    admin.stage:
+        class: App\Admin\StageAdmin
+        arguments: [~, App\Entity\Stage, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Stage }
+        public: true
