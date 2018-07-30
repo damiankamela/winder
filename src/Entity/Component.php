@@ -31,6 +31,18 @@ class Component
      */
     protected $name;
 
+    /**
+     * @var Stage
+     *
+     * @ORM\ManyToOne(targetEntity="Stage")
+     */
+    protected $stage;
+
+    public function __toString()
+    {
+        return $this->name ?? '';
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -44,5 +56,15 @@ class Component
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getStage(): ?Stage
+    {
+        return $this->stage;
+    }
+
+    public function setStage(Stage $stage): void
+    {
+        $this->stage = $stage;
     }
 }

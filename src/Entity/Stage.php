@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 namespace App\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -30,6 +32,23 @@ class Stage
      * @Assert\NotBlank()
      */
     protected $name;
+
+    /**
+     * @var Component[]|Collection
+     *
+     * @ORM\OneToMany(targetEntity="Component", mappedBy="stage")
+     */
+    protected $components;
+
+    public function __construct()
+    {
+        $this->components = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function getId(): int
     {
