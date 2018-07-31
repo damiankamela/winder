@@ -31,6 +31,7 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=25, unique=true)
      *
      * @Assert\NotBlank()
+     * @Assert\Length(max="25")
      */
     private $username;
 
@@ -48,14 +49,17 @@ class User implements UserInterface, \Serializable
 
     /**
      * @var string|null
-     *
-     * @Assert\NotBlank()
      */
     private $plainPassword;
 
     public function __construct()
     {
         $this->isActive = true;
+    }
+
+    public function __toString()
+    {
+        return $this->username ?? '';
     }
 
     public function setUsername(string $username): void
@@ -81,6 +85,11 @@ class User implements UserInterface, \Serializable
     public function setIsActive($isActive): void
     {
         $this->isActive = $isActive;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->isActive;
     }
 
     public function getUsername()

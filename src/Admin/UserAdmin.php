@@ -18,19 +18,26 @@ class UserAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('username', TextType::class)
-            ->add('plainPassword', PasswordType::class)
+            ->add('plainPassword', PasswordType::class, [
+                'required' => false
+            ])
+            ->add('isActive')
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('username');
+        $datagridMapper
+            ->add('username')
+            ->add('isActive')
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
             ->addIdentifier('username')
+            ->add('isActive')
             ->add(
                 '_action',
                 null,
@@ -45,6 +52,9 @@ class UserAdmin extends AbstractAdmin
 
     protected function configureShowFields(ShowMapper $showMapper)
     {
-        $showMapper->add('username');
+        $showMapper
+            ->add('username')
+            ->add('isActive')
+        ;
     }
 }
