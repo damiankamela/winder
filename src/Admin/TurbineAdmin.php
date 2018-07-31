@@ -27,7 +27,18 @@ class TurbineAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('name');
+        $listMapper
+            ->addIdentifier('name')
+            ->add(
+                '_action',
+                null,
+                [
+                    'actions' => [
+                        'show' => [],
+                    ],
+                ]
+            )
+        ;
     }
 
     protected function configureShowFields(ShowMapper $showMapper)

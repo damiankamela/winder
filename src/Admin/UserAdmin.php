@@ -29,7 +29,18 @@ class UserAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('username');
+        $listMapper
+            ->addIdentifier('username')
+            ->add(
+                '_action',
+                null,
+                [
+                    'actions' => [
+                        'show' => [],
+                    ],
+                ]
+            )
+        ;
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
