@@ -4,19 +4,25 @@ declare(strict_types=1);
 
 namespace App\Admin;
 
+use App\Entity\Turbine;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class TurbineAdmin extends AbstractAdmin
+class ProcessAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('name', TextType::class)
+            ->add('turbine', EntityType::class, [
+                'class' => Turbine::class,
+                'choice_label' => 'name'
+            ])
         ;
     }
 
@@ -33,13 +39,9 @@ class TurbineAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->tab('General')
-                ->add('name')
-            ->end()
-            ->end()
-            ->tab('Installation')
-                    ->add('processes')
-            ->end()
+            ->add('name')
+            ->add('turbine')
+            ->add('stages')
         ;
     }
 }

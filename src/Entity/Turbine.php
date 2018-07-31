@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -31,6 +34,23 @@ class Turbine
      */
     protected $name;
 
+    /**
+     * @var Process[]|Collection
+     *
+     * @ORM\OneToMany(targetEntity="Process", mappedBy="turbine", fetch="EXTRA_LAZY")
+     */
+    protected $processes;
+
+    public function __construct()
+    {
+        $this->processes = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name ?? '';
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -44,5 +64,13 @@ class Turbine
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return Process[]|Collection
+     */
+    public function getProcesses(): Collection
+    {
+        return $this->processes;
     }
 }

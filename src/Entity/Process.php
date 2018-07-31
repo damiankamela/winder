@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity()
  * @UniqueEntity(fields={"name"})
  */
-class Component
+class Process
 {
     /**
      * @var int
@@ -32,11 +35,23 @@ class Component
     protected $name;
 
     /**
-     * @var Stage
+     * @var Turbine
      *
-     * @ORM\ManyToOne(targetEntity="Stage", inversedBy="components")
+     * @ORM\ManyToOne(targetEntity="Turbine", inversedBy="processes")
      */
-    protected $stage;
+    protected $turbine;
+
+    /**
+     * @var Stage[]|Collection
+     *
+     * @ORM\OneToMany(targetEntity="Stage", mappedBy="process", fetch="EXTRA_LAZY")
+     */
+    protected $stages;
+
+    public function __construct()
+    {
+        $this->stages = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -58,13 +73,21 @@ class Component
         $this->name = $name;
     }
 
-    public function getStage(): ?Stage
+    public function getTurbine(): ?Turbine
     {
-        return $this->stage;
+        return $this->turbine;
     }
 
-    public function setStage(Stage $stage): void
+    public function setTurbine(Turbine $turbine): void
     {
-        $this->stage = $stage;
+        $this->turbine = $turbine;
+    }
+
+    /**
+     * @return Stage[]|Collection
+     */
+    public function getStages(): Collection
+    {
+        return $this->stages;
     }
 }

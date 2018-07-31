@@ -34,6 +34,13 @@ class Stage
     protected $name;
 
     /**
+     * @var Process
+     *
+     * @ORM\ManyToOne(targetEntity="Process")
+     */
+    protected $process;
+
+    /**
      * @var Component[]|Collection
      *
      * @ORM\OneToMany(targetEntity="Component", mappedBy="stage")
@@ -63,5 +70,23 @@ class Stage
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getProcess(): ?Process
+    {
+        return $this->process;
+    }
+
+    public function setProcess(Process $process): void
+    {
+        $this->process = $process;
+    }
+
+    /**
+     * @return Component[]|Collection
+     */
+    public function getComponents(): Collection
+    {
+        return $this->components;
     }
 }

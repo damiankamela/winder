@@ -13,6 +13,13 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Turbine }
         public: true
 
+    admin.process:
+        class: App\Admin\ProcessAdmin
+        arguments: [~, App\Entity\Process, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Process }
+        public: true
+
     admin.stage:
         class: App\Admin\StageAdmin
         arguments: [~, App\Entity\Stage, ~]
