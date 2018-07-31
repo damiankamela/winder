@@ -3,33 +3,33 @@ services:
         class: App\Admin\UserAdmin
         arguments: [~, App\Entity\User, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: User }
+            - { name: sonata.admin, manager_type: orm, group: Managing, label: User }
         public: true
 
     admin.turbine:
         class: App\Admin\TurbineAdmin
         arguments: [~, App\Entity\Turbine, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Turbine }
+            - { name: sonata.admin, manager_type: orm, group: Manuals, label: Turbine }
         public: true
 
     admin.process:
         class: App\Admin\ProcessAdmin
         arguments: [~, App\Entity\Process, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Process }
+            - { name: sonata.admin, manager_type: orm, group: Manuals, label: Process }
         public: true
 
     admin.stage:
         class: App\Admin\StageAdmin
         arguments: [~, App\Entity\Stage, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Stage }
+            - { name: sonata.admin, manager_type: orm, group: Manuals, label: Stage }
         public: true
 
     admin.component:
         class: App\Admin\ComponentAdmin
         arguments: [~, App\Entity\Component, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Component }
+            - { name: sonata.admin, manager_type: orm, group: Manuals, label: Component }
         public: true
