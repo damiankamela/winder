@@ -14,9 +14,19 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\EntityListeners({
  *     "App\EntityListener\UserListener"
  * })
- * @UniqueEntity(fields={"username"})
+ * @ORM\MappedSuperclass()
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "admin" = "Admin",
+ *     "employee" = "Employee"
+ * })
+ * @UniqueEntity(
+ *     fields={"username"},
+ *     repositoryMethod="findOneGloballyBy"
+ * )
  */
-class User implements UserInterface, \Serializable
+abstract class User implements UserInterface, \Serializable
 {
     /**
      * @var int
