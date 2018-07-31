@@ -49,6 +49,9 @@ class StageAdmin extends AbstractAdmin
 
     protected function configureShowFields(ShowMapper $showMapper)
     {
-        $showMapper->add('name');
+        $showMapper
+            ->add('name')
+            ->add('components')
+        ;
     }
 }
