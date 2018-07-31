@@ -72,6 +72,11 @@ abstract class User implements UserInterface, \Serializable
         return $this->username ?? '';
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function setUsername(string $username): void
     {
         $this->username = $username;
@@ -117,11 +122,6 @@ abstract class User implements UserInterface, \Serializable
     public function getPassword()
     {
         return $this->password;
-    }
-
-    public function getRoles()
-    {
-        return array('ROLE_USER');
     }
 
     public function eraseCredentials()

@@ -2,4 +2,4 @@ services:
     App\Repository\UserRepository:
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
-            - App\Entity\User\User
+            - App\Entity\User

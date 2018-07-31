@@ -4,6 +4,20 @@ sonata_admin:
         blocks:
             - { type: sonata.admin.block.admin_list, position: left }
 
+    security:
+        handler: sonata.admin.security.handler.role
+
+        information:
+            EDIT: EDIT
+            LIST: LIST
+            CREATE: CREATE
+            IMPORT: IMPORT
+            VIEW: VIEW
+            DELETE: DELETE
+            EXPORT: EXPORT
+            OPERATOR: OPERATOR
+            MASTER: MASTER
+
 sonata_block:
     blocks:
         sonata.admin.block.admin_list:

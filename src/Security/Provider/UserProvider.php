@@ -2,6 +2,8 @@
 
 namespace App\Security\Provider;
 
+use App\Entity\Admin;
+use App\Entity\Employee;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -90,7 +92,11 @@ class UserProvider implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return in_array($class, $this->classes);
+        return in_array($class, [
+            User::class,
+            Admin::class,
+            Employee::class
+        ]);
     }
 
     /**
