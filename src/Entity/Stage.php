@@ -36,7 +36,7 @@ class Stage
     /**
      * @var Process
      *
-     * @ORM\ManyToOne(targetEntity="Process")
+     * @ORM\ManyToOne(targetEntity="Process", inversedBy="stages")
      */
     protected $process;
 
