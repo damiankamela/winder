@@ -1,6 +1,6 @@
 sonata_admin:
     title: 'Winder'
-    title_logo: bundles/sonataadmin/windmill_logo.png
+    title_logo: windmill_logo.png
 
     dashboard:
         blocks:
