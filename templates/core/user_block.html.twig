@@ -1,0 +1,15 @@
+{% block user_block %}
+    <div class="clearfix">
+        {% if app.user %}
+            <li class="dropdown-header">
+                Welcome {{ app.user.username }}
+            </li>
+
+            <li>
+                <a href="{{ url('admin_logout') }}">
+                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout
+                </a>
+            </li>
+        {% endif %}
+    </div>
+{% endblock %}

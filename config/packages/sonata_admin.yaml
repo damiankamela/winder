@@ -18,7 +18,12 @@ sonata_admin:
             OPERATOR: OPERATOR
             MASTER: MASTER
 
+    templates:
+        layout: layout.html.twig
+        user_block: core/user_block.html.twig
+
 sonata_block:
+    default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
             contexts: [admin]
