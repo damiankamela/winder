@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Admin;
 
 use App\Entity\Stage;
+use App\Entity\Turbine;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -19,6 +20,9 @@ class ComponentAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('name', TextType::class)
+            ->add('turbine', EntityType::class, [
+                'class' => Turbine::class
+            ])
             ->add('stage', EntityType::class, [
                 'class' => Stage::class
             ])
@@ -27,7 +31,10 @@ class ComponentAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name');
+        $datagridMapper
+            ->add('name')
+            ->add('turbine')
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -48,6 +55,9 @@ class ComponentAdmin extends AbstractAdmin
 
     protected function configureShowFields(ShowMapper $showMapper)
     {
-        $showMapper->add('name');
+        $showMapper
+            ->add('name')
+            ->add('turbine', null, ['route'=> ['name'=>'show']])
+        ;
     }
 }

@@ -35,15 +35,15 @@ class Turbine
     protected $name;
 
     /**
-     * @var Process[]|Collection
+     * @var Component[]|Collection
      *
-     * @ORM\OneToMany(targetEntity="Process", mappedBy="turbine", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="Component", mappedBy="turbine", fetch="EXTRA_LAZY")
      */
-    protected $processes;
+    protected $components;
 
     public function __construct()
     {
-        $this->processes = new ArrayCollection();
+        $this->components = new ArrayCollection();
     }
 
     public function __toString()
@@ -67,10 +67,10 @@ class Turbine
     }
 
     /**
-     * @return Process[]|Collection
+     * @return Component[]|Collection
      */
-    public function getProcesses(): Collection
+    public function getComponents(): Collection
     {
-        return $this->processes;
+        return $this->components;
     }
 }

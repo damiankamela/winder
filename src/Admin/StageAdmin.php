@@ -51,7 +51,7 @@ class StageAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('name')
-            ->add('components')
+            ->add('components', null, ['route'=> ['name'=>'show']])
         ;
     }
 }

@@ -49,7 +49,7 @@ class TurbineAdmin extends AbstractAdmin
             ->end()
             ->end()
             ->tab('Installation')
-                    ->add('processes')
+                    ->add('components', null, ['route'=> ['name'=>'show']])
             ->end()
         ;
     }

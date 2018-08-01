@@ -35,13 +35,6 @@ class Process
     protected $name;
 
     /**
-     * @var Turbine
-     *
-     * @ORM\ManyToOne(targetEntity="Turbine", inversedBy="processes")
-     */
-    protected $turbine;
-
-    /**
      * @var Stage[]|Collection
      *
      * @ORM\OneToMany(targetEntity="Stage", mappedBy="process", fetch="EXTRA_LAZY")
@@ -71,16 +64,6 @@ class Process
     public function setName(string $name): void
     {
         $this->name = $name;
-    }
-
-    public function getTurbine(): ?Turbine
-    {
-        return $this->turbine;
-    }
-
-    public function setTurbine(Turbine $turbine): void
-    {
-        $this->turbine = $turbine;
     }
 
     /**

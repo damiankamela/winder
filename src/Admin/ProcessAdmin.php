@@ -19,10 +19,6 @@ class ProcessAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('name', TextType::class)
-            ->add('turbine', EntityType::class, [
-                'class' => Turbine::class,
-                'choice_label' => 'name'
-            ])
         ;
     }
 
@@ -51,8 +47,7 @@ class ProcessAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('name')
-            ->add('turbine')
-            ->add('stages')
+            ->add('stages', null, ['route'=> ['name'=>'show']])
         ;
     }
 }

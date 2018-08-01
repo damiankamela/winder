@@ -38,6 +38,13 @@ class Component
      */
     protected $stage;
 
+    /**
+     * @var Turbine
+     *
+     * @ORM\ManyToOne(targetEntity="Turbine")
+     */
+    protected $turbine;
+
     public function __toString()
     {
         return $this->name ?? '';
@@ -66,5 +73,15 @@ class Component
     public function setStage(Stage $stage): void
     {
         $this->stage = $stage;
+    }
+
+    public function getTurbine(): Turbine
+    {
+        return $this->turbine;
+    }
+
+    public function setTurbine(Turbine $turbine): void
+    {
+        $this->turbine = $turbine;
     }
 }
