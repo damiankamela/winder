@@ -75,7 +75,7 @@ class Component
         $this->stage = $stage;
     }
 
-    public function getTurbine(): Turbine
+    public function getTurbine(): ?Turbine
     {
         return $this->turbine;
     }
