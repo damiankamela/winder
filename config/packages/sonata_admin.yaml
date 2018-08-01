@@ -1,5 +1,7 @@
 sonata_admin:
     title: 'Winder'
+    title_logo: bundles/sonataadmin/windmill_logo.png
+
     dashboard:
         blocks:
             - { type: sonata.admin.block.admin_list, position: left }
