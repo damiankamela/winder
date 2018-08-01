@@ -1,0 +1,20 @@
+App\Entity\Stage:
+    stage_tower:
+        name: Tower
+        process: '@process_preparation'
+
+    stage_nacele:
+        name: Nacele
+        process: '@process_preparation'
+
+    stage_blades:
+        name: Blades
+        process: '@process_preparation'
+
+    stage_hub:
+        name: Hub
+        process: '@process_preparation'
+
+    stage_foundations:
+        name: Foundations
+        process: '@process_preparation'

@@ -1,0 +1,12 @@
+App\Entity\Process:
+    process_installation:
+        name: Installation
+
+    process_preparation:
+        name: Preparation
+
+    process_mechanical:
+        name: Mechanical
+
+    process_electrical:
+        name: Electrical

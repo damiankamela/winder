@@ -1,0 +1,4 @@
+App\Entity\Employee:
+    employee_{1..20}:
+        username: employee<current()>
+        plainPassword: employee<current()>
