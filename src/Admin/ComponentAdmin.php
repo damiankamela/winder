@@ -34,6 +34,7 @@ class ComponentAdmin extends AbstractAdmin
         $datagridMapper
             ->add('name')
             ->add('turbine')
+            ->add('stage')
         ;
     }
 
@@ -42,6 +43,7 @@ class ComponentAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('name')
             ->add('turbine')
+            ->add('stage')
             ->add(
                 '_action',
                 null,
@@ -59,6 +61,7 @@ class ComponentAdmin extends AbstractAdmin
         $showMapper
             ->add('name')
             ->add('turbine', null, ['route'=> ['name'=>'show']])
+            ->add('stage', null, ['route'=> ['name'=>'show']])
         ;
     }
 }
