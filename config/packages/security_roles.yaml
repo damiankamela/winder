@@ -13,10 +13,8 @@ security:
             - ROLE_ADMIN_TURBINE_LIST
             - ROLE_ADMIN_TURBINE_VIEW
 
-            - ROLE_ADMIN_PROCESS_LIST
             - ROLE_ADMIN_PROCESS_VIEW
 
-            - ROLE_ADMIN_STAGE_LIST
             - ROLE_ADMIN_STAGE_VIEW
 
             - ROLE_ADMIN_COMPONENT_LIST
