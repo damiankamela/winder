@@ -1,0 +1,5 @@
+services:
+    App\DataFixtures\Faker\Provider\:
+        resource: '../../src/DataFixtures/Faker/Provider'
+        tags:
+            - { name: hautelook_alice.faker.provider }
