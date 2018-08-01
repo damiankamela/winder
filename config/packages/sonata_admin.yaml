@@ -24,6 +24,9 @@ sonata_admin:
         search: '@SonataAdmin/Core/search.html.twig'
         search_result_block: '@SonataAdmin/Block/block_search_result.html.twig'
 
+    global_search:
+        empty_boxes: fade
+
 sonata_block:
     default_contexts: [cms]
     blocks:
