@@ -41,7 +41,7 @@ class Component
     /**
      * @var Turbine
      *
-     * @ORM\ManyToOne(targetEntity="Turbine")
+     * @ORM\ManyToOne(targetEntity="Turbine", inversedBy="components")
      */
     protected $turbine;
 
