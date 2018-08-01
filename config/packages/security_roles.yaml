@@ -10,3 +10,14 @@ security:
             - ROLE_USER
             - ROLE_ALLOWED_TO_SWITCH
 
+            - ROLE_ADMIN_TURBINE_LIST
+            - ROLE_ADMIN_TURBINE_SHOW
+
+            - ROLE_ADMIN_PROCESS_LIST
+            - ROLE_ADMIN_PROCESS_SHOW
+
+            - ROLE_ADMIN_STAGE_LIST
+            - ROLE_ADMIN_STAGE_SHOW
+
+            - ROLE_ADMIN_COMPONENT_LIST
+            - ROLE_ADMIN_COMPONENT_SHOW
