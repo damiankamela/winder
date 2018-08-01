@@ -21,9 +21,13 @@ sonata_admin:
     templates:
         layout: layout.html.twig
         user_block: core/user_block.html.twig
+        search: '@SonataAdmin/Core/search.html.twig'
+        search_result_block: '@SonataAdmin/Block/block_search_result.html.twig'
 
 sonata_block:
     default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.search_result:
             contexts: [admin]
