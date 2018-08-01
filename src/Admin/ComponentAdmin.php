@@ -41,6 +41,7 @@ class ComponentAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('name')
+            ->add('turbine')
             ->add(
                 '_action',
                 null,
