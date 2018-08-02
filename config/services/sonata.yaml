@@ -24,14 +24,14 @@ services:
         class: App\Admin\ProcessAdmin
         arguments: [~, App\Entity\Process, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Manuals, label: Process }
+            - { name: sonata.admin, manager_type: orm, group: Managing, label: Process }
         public: true
 
     admin.stage:
         class: App\Admin\StageAdmin
         arguments: [~, App\Entity\Stage, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Manuals, label: Stage }
+            - { name: sonata.admin, manager_type: orm, group: Managing, label: Stage }
         public: true
 
     admin.component:
