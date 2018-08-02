@@ -1,4 +1,4 @@
 App\Entity\Admin:
     admin:
-        username: admin
+        email: 'admin\@winder.com'
         plainPassword: admin

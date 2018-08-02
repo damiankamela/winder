@@ -16,21 +16,30 @@ class EmployeeAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('username', TextType::class)
+            ->add('email')
+            ->add('firstName')
+            ->add('lastName')
+            ->add('phone')
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('username')
+            ->add('email')
+            ->add('firstName')
+            ->add('lastName')
+            ->add('phone')
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('username')
+            ->addIdentifier('email')
+            ->add('firstName')
+            ->add('lastName')
+            ->add('phone')
             ->add(
                 '_action',
                 null,
@@ -46,7 +55,10 @@ class EmployeeAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('username')
+            ->add('email')
+            ->add('firstName')
+            ->add('lastName')
+            ->add('phone')
         ;
     }
 }

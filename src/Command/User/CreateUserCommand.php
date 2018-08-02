@@ -68,7 +68,7 @@ class CreateUserCommand extends ContainerAwareCommand
         /** @var User $user */
         $user = new $class;
 
-        $user->setUsername($username);
+        $user->setEmail($username);
         $user->setPlainPassword($password);
 
         $em = $this->getContainer()->get('doctrine')->getManager();

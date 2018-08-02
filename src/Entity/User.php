@@ -43,7 +43,7 @@ abstract class User implements UserInterface, \Serializable
      * @Assert\NotBlank()
      * @Assert\Length(max="25")
      */
-    private $username;
+    private $email;
 
     /**
      * @var string
@@ -77,9 +77,14 @@ abstract class User implements UserInterface, \Serializable
         return $this->id;
     }
 
-    public function setUsername(string $username): void
+    public function getEmail(): ?string
     {
-        $this->username = $username;
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
     }
 
     public function getPlainPassword(): ?string
@@ -109,7 +114,7 @@ abstract class User implements UserInterface, \Serializable
 
     public function getUsername()
     {
-        return $this->username;
+        return $this->getEmail();
     }
 
     public function getSalt()
@@ -133,7 +138,7 @@ abstract class User implements UserInterface, \Serializable
     {
         return serialize(array(
             $this->id,
-            $this->username,
+            $this->email,
             $this->password,
             // see section on salt below
             // $this->salt,
@@ -145,7 +150,7 @@ abstract class User implements UserInterface, \Serializable
     {
         list (
             $this->id,
-            $this->username,
+            $this->email,
             $this->password,
             // see section on salt below
             // $this->salt
