@@ -33,9 +33,9 @@ class Employee extends User
     /**
      * @var string
      *
-     * @ORM\Column(length=15)
+     * @ORM\Column(length=64)
      *
-     * @Assert\Length(max="15")
+     * @Assert\Length(max="64")
      */
     protected $phone;
 
