@@ -11,7 +11,6 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\CoreBundle\Form\Type\DatePickerType;
 use Sonata\CoreBundle\Form\Type\DateRangePickerType;
-use Sonata\CoreBundle\Form\Type\DateRangeType;
 use Sonata\DoctrineORMAdminBundle\Filter\DateRangeFilter;
 
 class ProjectAdmin extends AbstractAdmin
@@ -82,6 +81,7 @@ class ProjectAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('turbine', null, ['route'=> ['name'=>'show']])
+            ->add('startDate', null)
             ->add('endDate', null)
             ->add('employees', null, ['route'=> ['name'=>'show']])
         ;
