@@ -27,8 +27,7 @@ class ProjectAdmin extends AbstractAdmin
             ])
             ->add('employees', null, [
                 'multiple' => true
-            ])
-        ;
+            ]);
     }
 
     /**
@@ -51,8 +50,7 @@ class ProjectAdmin extends AbstractAdmin
                     'field_options_start' => ['format' => 'YYYY-MM-DD'],
                     'field_options_end' => ['format' => 'YYYY-MM-DD'],
                 ],
-            ])
-        ;
+            ]);
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -73,17 +71,19 @@ class ProjectAdmin extends AbstractAdmin
                         'show' => [],
                     ],
                 ]
-            )
-        ;
+            );
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('turbine', null, ['route'=> ['name'=>'show']])
-            ->add('startDate', null)
-            ->add('endDate', null)
-            ->add('employees', null, ['route'=> ['name'=>'show']])
-        ;
+            ->add('turbine', null, ['route' => ['name' => 'show']])
+            ->add('startDate', null, [
+                'format' => 'Y-m-d'
+            ])
+            ->add('endDate', null, [
+                'format' => 'Y-m-d'
+            ])
+            ->add('employees', null, ['route' => ['name' => 'show']]);
     }
 }
