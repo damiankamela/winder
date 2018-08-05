@@ -27,7 +27,7 @@ class UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('email', TextType::class)
+            ->add('email')
             ->add('plainPassword', PasswordType::class, [
                 'required' => false
             ])

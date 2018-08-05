@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -40,6 +42,25 @@ class Employee extends User
     protected $phone;
 
     /**
+     * @var Project[]|Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Project", mappedBy="employees", fetch="EXTRA_LAZY")
+     */
+    protected $projects;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->projects = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return sprintf('%s %s', $this->getFirstName(), $this->getLastName());
+    }
+
+    /**
      * @return string
      */
     public function getFirstName(): ?string
@@ -70,6 +91,26 @@ class Employee extends User
     public function setPhone(string $phone): void
     {
         $this->phone = $phone;
+    }
+
+    public function addProject(Project $project): void
+    {
+        $this->projects->add($project);
+    }
+
+    public function removeProject(Project $project): void
+    {
+        if ($this->projects->contains($project)) {
+            $this->projects->removeElement($project);
+        }
+    }
+
+    /**
+     * @return Project[]|Collection
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
     }
 
     public function getRoles()

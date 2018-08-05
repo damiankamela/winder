@@ -1,0 +1,10 @@
+App\Entity\Project:
+    project_{1..20}:
+        turbine: '@turbine_*'
+        startDate: <dateTimeBetween('-2 weeks', '-7 days')>
+        endDate: <dateTimeBetween('-6 days', '+1 month')>
+        employees:
+            - '@employee_<numberBetween(1,4)>'
+            - '@employee_<numberBetween(5,9)>'
+            - '@employee_<numberBetween(10,14)>'
+            - '@employee_<numberBetween(15,20)>'

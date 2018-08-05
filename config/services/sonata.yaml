@@ -40,3 +40,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Manuals, label: Component }
         public: true
+
+    admin.project:
+        class: App\Admin\ProjectAdmin
+        arguments: [~, App\Entity\Project, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Managing, label: Project }
+        public: true

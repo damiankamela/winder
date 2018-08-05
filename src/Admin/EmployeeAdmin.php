@@ -9,7 +9,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class EmployeeAdmin extends AbstractAdmin
 {
@@ -55,10 +54,16 @@ class EmployeeAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('email')
-            ->add('firstName')
-            ->add('lastName')
-            ->add('phone')
+            ->tab('General')
+                ->add('email')
+                ->add('firstName')
+                ->add('lastName')
+                ->add('phone')
+                ->end()
+            ->end()
+            ->tab('Projects')
+                ->add('projects', null, ['route'=> ['name'=>'show']])
+            ->end()
         ;
     }
 }
